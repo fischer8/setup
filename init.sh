@@ -26,6 +26,7 @@ sudo apt install xclip -y
 sudo apt-get install git -y
 sudo apt-get install wget -y
 sudo apt install parallel -y
+sudo ubuntu-drivers autoinstall
 sudo apt install build-essential -y
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" -y
@@ -154,7 +155,6 @@ exṕort PS1="\[\e[38;2;0;95;135m\]\w\[\e[0m\]\$ "' >> $HOME/.bashrc
 
 sudo chmod +x ~/.keymap.map ~/.bash_aliases /usr/bin/xgit /usr/bin/nvb /usr/bin/ccc /usr/bin/cc++
 
-sudo ubuntu-drivers autoinstall
 source ~/.bashrc
 
 echo -e "\n\n\n"
