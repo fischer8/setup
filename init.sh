@@ -1,16 +1,4 @@
 #!/bin/bash
-sudo apt-get install git -y
-sudo apt update
-sudo apt-get update 
-sudo apt install curl -y
-sudo apt install xclip -y
-sudo apt install parallel -y
-sudo apt install build-essential -y
-sudo add-apt-repository ppa:graphics-drivers/ppa -y
-sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" -y
-
-mkdir -p $HOME/.config/nvim/ $HOME/backup/nvim/ $HOME/obs/remux $HOME/obs/mp4/ $HOME/dev/ $HOME/shotcut/raw/ $HOME/shotcut/mp4/
-
 echo -e "\n\n\n\n"
 echo " background #171421"
 echo " text #2AA1B3"
@@ -31,18 +19,16 @@ echo "(PRESS ANY KEY TO CONTINUE)"
 echo -e "\n\n\n\n"
 read -s -n 1
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-git clone --depth 1 git@github.com:fischer8/nvim.git $HOME/.config/nvim/
-
-sudo wget -O - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/DroidSansMono.zip > $HOME/Downloads/DroidSansMono.zip
-sudo unzip $HOME/Downloads/DroidSansMono.zip -d /usr/share/fonts/
-
-wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
-
-sudo wget -O - https://cdn.akamai.steamstatic.com/client/installer/steam.deb > $HOME/Downloads/steam.deb
-sudo dpkg -i $HOME/Downloads/steam.deb
+sudo apt update
+sudo apt-get update 
+sudo apt install curl -y
+sudo apt install xclip -y
+sudo apt-get install git -y
+sudo apt-get install wget -y
+sudo apt install parallel -y
+sudo apt install build-essential -y
+sudo add-apt-repository ppa:graphics-drivers/ppa -y
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" -y
 
 echo -e "\n\n\n\n"
 echo "---------- NVM ----------"
@@ -64,17 +50,31 @@ echo -e "\n\n\n\n"
 echo "---------- APPS ----------"
 echo -e "\n\n\n\n"
 
+mkdir -p $HOME/.config/nvim/ $HOME/backup/nvim/ $HOME/obs/remux $HOME/obs/mp4/ $HOME/dev/ $HOME/shotcut/raw/ $HOME/shotcut/mp4/
+
 sudo apt-get purge firefox -y
 sudo snap remove firefox
 sudo snap remove --purge firefox
 sudo rm -rf /etc/firefox/ /usr/lib/firefox/ /usr/lib/firefox-addons/
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+git clone --depth 1 git@github.com:fischer8/nvim.git $HOME/.config/nvim/
+
+sudo wget -O - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/DroidSansMono.zip > $HOME/Downloads/DroidSansMono.zip
+sudo unzip $HOME/Downloads/DroidSansMono.zip -d /usr/share/fonts/
+
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+
+sudo wget -O - https://cdn.akamai.steamstatic.com/client/installer/steam.deb > $HOME/Downloads/steam.deb
+sudo dpkg -i $HOME/Downloads/steam.deb
 
 apps=(
     "sudo apt install --no-install-recommends software-properties-common dirmngr -y"
     "sudo apt install --no-install-recommends r-base -y"
     "sudo apt-get install clang-15 -y"
     "sudo apt install libstdc++-12-dev -y"
-    "sudo apt-get install wget -y"
     "sudo apt-get install dconf-editor -y"
     "sudo apt install lua5.4 -y"
     "sudo apt install python3 -y"
