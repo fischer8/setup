@@ -9,17 +9,13 @@ sudo apt install build-essential -y
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" -y
 
-echo " "
-
 mkdir -p $HOME/.config/nvim/ $HOME/backup/nvim/ $HOME/obs/remux $HOME/obs/mp4/ $HOME/dev/ $HOME/shotcut/raw/ $HOME/shotcut/mp4/
 
-echo " "
-echo " "
-echo " "
+echo -e "\n\n\n\n"
 echo " background #171421"
 echo " text #2AA1B3"
 echo "---------- SSH ----------"
-echo " "
+echo -e "\n\n\n\n"
 
 read -p "pass:  " PASS
 ssh-keygen -t ed25519 -C "$PASS"
@@ -29,7 +25,7 @@ eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
 cat $HOME/.ssh/id_ed25519.pub | xclip -selection clipboard
 
-echo " "
+echo -e "\n\n\n\n"
 echo "--  SSH PUB KEY COPIED TO CLIPBOARD  --"
 echo "--  ADD TO GITHUB......  --"
 echo "(PRESS ANY KEY TO CONTINUE)"
@@ -49,10 +45,9 @@ wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sud
 sudo wget -O - https://cdn.akamai.steamstatic.com/client/installer/steam.deb > $HOME/Downloads/steam.deb
 sudo dpkg -i $HOME/Downloads/steam.deb
 
-echo " "
-echo " "
-echo " "
+echo -e "\n\n\n\n"
 echo "---------- NVM ----------"
+echo -e "\n\n\n\n"
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
@@ -66,10 +61,9 @@ nvm alias default node
 
 npm install -g --unsafe-perm node-red
 
-echo " "
-echo " "
-echo " "
+echo -e "\n\n\n\n"
 echo "---------- APPS ----------"
+echo -e "\n\n\n\n"
 
 sudo apt-get purge firefox -y
 sudo snap remove firefox
@@ -104,13 +98,21 @@ apps=(
     "sudo snap install tldr"
 )
 
-parallel --jobs 4 ::: "${apps[@]}"
+parallel --jobs 4 ::: "${apps[@]}" 2> err_log.txt
 
+if [ $? -eq 0 ]; then
+    echo -e "\n\n\n\n"
+    echo "SUCESS"
+    echo -e "\n\n\n\n"
+else
+    echo -e "\n\n\n\n"
+    echo "Houve um erro durante a instalação. Detalhes disponíveis em: $log_file"
+    echo -e "\n\n\n\n"
+fi
 
-echo " "
-echo " "
-echo " "
+echo -e "\n\n\n"
 echo "---------- CONFIG ----------"
+echo -e "\n\n\n"
 
 gsettings set org.gnome.Terminal.Legacy.Settings confirm-close false
 gsettings set org.gnome.mutter center-new-windows true
@@ -154,13 +156,11 @@ sudo chmod +x ~/.keymap.map ~/.bash_aliases /usr/bin/xgit /usr/bin/nvb /usr/bin/
 sudo ubuntu-drivers autoinstall
 source ~/.bashrc
 
-echo " "
-echo " "
-echo " "
+echo -e "\n\n\n"
 echo "----- END -----"
-echo " "
-echo " "
+echo -e "\n\n\n"
 echo " PRESS ANY KEY TO REBOOT "
-echo " "
+echo -e "\n\n\n"
 read -s -n 1
+rm -rf err_log.txt
 sudo reboot -f
