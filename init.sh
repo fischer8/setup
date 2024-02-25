@@ -102,12 +102,14 @@ parallel --jobs 4 ::: "${apps[@]}" 2> err_log.txt
 
 if [ $? -eq 0 ]; then
     echo -e "\n\n\n\n"
-    echo "SUCESS"
+    echo "--------- SUCCESS ----------"
     echo -e "\n\n\n\n"
 else
     echo -e "\n\n\n\n"
-    echo "Houve um erro durante a instalação. Detalhes disponíveis em: $log_file"
+    echo "--------- SOMETHING WENT WRONG ----------"
+    echo "SEE err_log.txt"
     echo -e "\n\n\n\n"
+    read -s -n 1
 fi
 
 echo -e "\n\n\n"
