@@ -13,7 +13,6 @@ eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
 cat $HOME/.ssh/id_ed25519.pub | xclip -selection clipboard
 
-echo -e "\n\n\n\n"
 echo "--  SSH PUB KEY COPIED TO CLIPBOARD  --"
 echo "(PRESS ANY KEY TO CONTINUE)"
 echo -e "\n\n\n\n"
