@@ -163,5 +163,5 @@ echo -e "\n\n\n"
 echo " PRESS ANY KEY TO REBOOT "
 echo -e "\n\n\n"
 read -s -n 1
-rm -rf err_log.txt
+sudo rm -rf err_log.txt
 sudo reboot -f
