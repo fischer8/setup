@@ -27,9 +27,8 @@ cat $HOME/.ssh/id_ed25519.pub | xclip -selection clipboard
 
 echo -e "\n\n\n\n"
 echo "--  SSH PUB KEY COPIED TO CLIPBOARD  --"
-echo "--  ADD TO GITHUB......  --"
 echo "(PRESS ANY KEY TO CONTINUE)"
-echo " "
+echo -e "\n\n\n\n"
 read -s -n 1
 
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
