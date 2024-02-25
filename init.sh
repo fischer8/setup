@@ -16,7 +16,6 @@ mkdir -p $HOME/.config/nvim/ $HOME/backup/nvim/ $HOME/obs/remux $HOME/obs/mp4/ $
 echo " "
 echo " "
 echo " "
-echo " "
 echo " background #171421"
 echo " text #2AA1B3"
 echo "---------- SSH ----------"
@@ -67,6 +66,9 @@ nvm alias default node
 
 npm install -g --unsafe-perm node-red
 
+echo " "
+echo " "
+echo " "
 echo "---------- APPS ----------"
 
 sudo apt-get purge firefox -y
@@ -152,6 +154,7 @@ sudo chmod +x ~/.keymap.map ~/.bash_aliases /usr/bin/xgit /usr/bin/nvb /usr/bin/
 sudo ubuntu-drivers autoinstall
 source ~/.bashrc
 
+echo " "
 echo " "
 echo " "
 echo "----- END -----"
