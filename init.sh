@@ -52,10 +52,14 @@ echo -e "\n\n\n\n"
 
 mkdir -p $HOME/.config/nvim/ $HOME/backup/nvim/ $HOME/obs/remux $HOME/obs/mp4/ $HOME/dev/ $HOME/shotcut/raw/ $HOME/shotcut/mp4/
 
+kill $(pidof firefox)
 sudo apt-get purge firefox -y
 sudo snap remove firefox
 sudo snap remove --purge firefox
 sudo rm -rf /etc/firefox/ /usr/lib/firefox/ /usr/lib/firefox-addons/
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
