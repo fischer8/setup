@@ -85,6 +85,7 @@ apps=(
     "sudo apt install python3 -y"
     "sudo apt install python3-pip"
     "sudo apt install nvidia-prime"
+    "sudo apt install gedit"
     "sudo apt install piper -y"
     "sudo apt install gnome-tweaks -y"
     "sudo snap install nvim --classic"
