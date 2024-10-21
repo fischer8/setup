@@ -83,6 +83,8 @@ apps=(
     "sudo apt-get install dconf-editor -y"
     "sudo apt install lua5.4 -y"
     "sudo apt install python3 -y"
+    "sudo apt install python3-pip"
+    "sudo apt install nvidia-prime"
     "sudo apt install piper -y"
     "sudo apt install gnome-tweaks -y"
     "sudo snap install nvim --classic"
@@ -160,6 +162,8 @@ exṕort PS1="\[\e[38;2;0;95;135m\]\w\[\e[0m\]\$ "' >> $HOME/.bashrc
 sudo chmod +x ~/.keymap.map ~/.bash_aliases /usr/bin/xgit /usr/bin/nvb /usr/bin/ccc /usr/bin/cc++
 
 source ~/.bashrc
+
+sudo prime-select nvidia
 
 echo -e "\n\n\n"
 echo "----- END -----"
